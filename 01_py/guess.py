@@ -9,7 +9,8 @@ def safe_input():
             user_tip = int(input("Tvůj tip: "))
         except:
             print("Není to číslo! ")
-        return user_tip
+        else:
+            return user_tip
 
 randomne_cislo = random.randint(MIN_VALUE, MAX_VALUE)
 
