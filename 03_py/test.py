@@ -1,0 +1,6 @@
+def studentova_funkce():
+  FILE_NAME = "file1.txt"
+  # radky kodu...
+  jina_funkce(FILE_NAME)
+  # ...dalsi radky kodu...
+  return FILE_NAME
