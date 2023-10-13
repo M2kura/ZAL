@@ -1,94 +1,120 @@
 import math
 
 def addition(x, y):
-    while type(x) != str and type(y) != str:
-        sum = x + y
-        return sum
+    try:
+        sum = float(x) + float(y)
+    except:
+        raise ValueError('This operation is not supported for given input parameters')
     else:
-        ValueError('This operation is not supported for given input parameters')
+        return sum
 
 def subtraction(x, y):
-    if x != str and y != str:
-        sum = x - y
-        return sum
+    try:
+        sum = float(x) - float(y)
+    except:
+        raise ValueError('This operation is not supported for given input parameters')
     else:
-        ValueError('This operation is not supported for given input parameters')
+        return sum
 
 def multiplication(x, y):
-    if x != str and y != str:
-        sum = x * y
-        return sum
+    try:
+        sum = float(x) * float(y)
+    except:
+        raise ValueError('This operation is not supported for given input parameters')
     else:
-        ValueError('This operation is not supported for given input parameters')
+        return sum
 
 def division(x, y):
-    if x != str and y != str and y != 0:
-        sum = x / y
-        return sum
+    try:
+        sum = float(x) / float(y)
+    except:
+        raise ValueError('This operation is not supported for given input parameters')
     else:
-        ValueError('This operation is not supported for given input parameters')
+        return sum
 
 def modulo(x, y):
-    if x != str and y != str and x >= y and y > 0:
-        sum = x % y
-        return sum
-    else: 
+    try:
+        sum = float(x) % float(y)
+    except: 
         raise ValueError('This operation is not supported for given input parameters')
+    else:
+        if float(x) >= float(y) and float(y) > 0:
+            return sum
+        else: 
+            raise ValueError('This operation is not supported for given input parameters')
 
 def secondPower(x):
-    if x != str:
-        sum = x ** 2
-        return sum
-    else:
+    try:
+        sum = float(x) ** 2
+    except:
         raise ValueError('This operation is not supported for given input parameters')
+    else:
+        return sum
 
 def power(x, y):
-    if x != str and y != str and y >= 0:
-        sum = float(x ** y)
-        return sum
-    else: 
+    try:
+        sum = float(x) ** float(y)
+    except: 
         raise ValueError('This operation is not supported for given input parameters')
+    else:
+        if float(y) >= 0:
+            return sum 
+        else:
+            raise ValueError('This operation is not supported for given input parameters')
+            
 
 def secondRadix(x):
-    if x != str and x > 0:
-        sum = math.sqrt(x)
-        return sum
-    else:
+    try:
+        sum = math.sqrt(int(x))
+    except:
         raise ValueError('This operation is not supported for given input parameters')
+    else:
+        if int(x) > 0:
+            return sum
+        else: 
+            raise ValueError('This operation is not supported for given input parameters')
+
 
 def magic(x, y, z, k):
-    if x != str and y != str and z != str and k != str and m != 0:
-        l = x + k
-        m = y + z
+    try:
+        l = float(x) + float(k)
+        m = float(y) + float(z)
         n = ((l/m)+1)
+    except:
+        raise ValueError('This operation is not supported for given input parameters')
+    else:
         return n
 
 def control(a, x, y, z, k):
-    while x != str and y != str and z != str and k != str:
-        if a == 'ADDITION':
-            return addition(x, y)
-        elif a == 'SUBTRACTION':
-            return subtraction(x, y)
-        elif a == 'MULTIPLICATION':
-            return multiplication(x, y)
-        elif a == 'DIVISION':
-            sum = division(x, y)
-            return sum
-        elif a == 'MOD':
-            sum = modulo(x, y)
-            return sum
-        elif a == 'POWER':
-            sum = power(x, y)
-            return sum
-        elif a == 'SECONDRADIX':
-            sum = subtraction(x)
-            return sum
-        elif a == 'MAGIC':
-            sum = magic(x, y, z, k)
-            return sum
-        else:
-            raise ValueError('This operation is not supported for given input parameters')
+    if a == 'ADDITION':
+        z = k = ''
+        return addition(x, y)
+    elif a == 'SUBTRACTION':
+        z = k = ''
+        return subtraction(x, y)
+    elif a == 'MULTIPLICATION':
+        z = k = ''
+        return multiplication(x, y)
+    elif a == 'DIVISION':
+        z = k = ''
+        return division(x, y)
+    elif a == 'MOD':
+        z = k = ''
+        return modulo(x, y)
+    elif a == 'POWER':
+        z = k = ''
+        return power(x, y)
+    elif a == 'SECONDRADIX':
+        z = k = y = ''
+        return subtraction(x)
+    elif a == 'MAGIC':
+        return magic(x, y, z, k)
     else:
         raise ValueError('This operation is not supported for given input parameters')
     
-print(addition(4, "2"))
+# print(power(input("Choose a number: "), input("Choose another one: ")))
+# print(secondRadix(input("Choose a number: ")))
+# x = input("---> ")
+# print(type(x))
+# print(magic(input("1 number: "), input("2 number: "), input("3 number: "), input("4 number: ")))
+# print(control('MOD', 40, input("samk"),4,5))
