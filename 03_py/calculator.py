@@ -1,5 +1,4 @@
 import math
-
 def addition(x, y):
     try:
         sum = float(x) + float(y)
@@ -7,7 +6,6 @@ def addition(x, y):
         raise ValueError('This operation is not supported for given input parameters')
     else:
         return sum
-
 def subtraction(x, y):
     try:
         sum = float(x) - float(y)
@@ -15,7 +13,6 @@ def subtraction(x, y):
         raise ValueError('This operation is not supported for given input parameters')
     else:
         return sum
-
 def multiplication(x, y):
     try:
         sum = float(x) * float(y)
@@ -23,7 +20,6 @@ def multiplication(x, y):
         raise ValueError('This operation is not supported for given input parameters')
     else:
         return sum
-
 def division(x, y):
     try:
         sum = float(x) / float(y)
@@ -31,7 +27,6 @@ def division(x, y):
         raise ValueError('This operation is not supported for given input parameters')
     else:
         return sum
-
 def modulo(x, y):
     try:
         sum = float(x) % float(y)
@@ -42,7 +37,6 @@ def modulo(x, y):
             return sum
         else: 
             raise ValueError('This operation is not supported for given input parameters')
-
 def secondPower(x):
     try:
         sum = float(x) ** 2
@@ -50,7 +44,6 @@ def secondPower(x):
         raise ValueError('This operation is not supported for given input parameters')
     else:
         return sum
-
 def power(x, y):
     try:
         sum = float(x) ** float(y)
@@ -60,9 +53,7 @@ def power(x, y):
         if float(y) >= 0:
             return sum 
         else:
-            raise ValueError('This operation is not supported for given input parameters')
-            
-
+            raise ValueError('This operation is not supported for given input parameters')   
 def secondRadix(x):
     try:
         sum = math.sqrt(int(x))
@@ -73,8 +64,6 @@ def secondRadix(x):
             return sum
         else: 
             raise ValueError('This operation is not supported for given input parameters')
-
-
 def magic(x, y, z, k):
     try:
         l = float(x) + float(k)
@@ -84,7 +73,6 @@ def magic(x, y, z, k):
         raise ValueError('This operation is not supported for given input parameters')
     else:
         return n
-
 def control(a, x, y, z, k):
     if a == 'ADDITION':
         z = k = ''
@@ -106,15 +94,8 @@ def control(a, x, y, z, k):
         return power(x, y)
     elif a == 'SECONDRADIX':
         z = k = y = ''
-        return subtraction(x)
+        return secondRadix(x)
     elif a == 'MAGIC':
         return magic(x, y, z, k)
     else:
-        raise ValueError('This operation is not supported for given input parameters')
-    
-# print(power(input("Choose a number: "), input("Choose another one: ")))
-# print(secondRadix(input("Choose a number: ")))
-# x = input("---> ")
-# print(type(x))
-# print(magic(input("1 number: "), input("2 number: "), input("3 number: "), input("4 number: ")))
-# print(control('MOD', 40, input("samk"),4,5))
+        raise ValueError('This operation is not supported for given input parameters')    
