@@ -16,24 +16,24 @@ def newtonPi(x):
 
 
 def leibnizPi(x: int):
-    pilist = []
+    y = 0
     for i in range(1, x+1):
         if i % 2 == 1:
-            pilist.append(4/(i+i-1))
+            y+=(4/(i+i-1))
         else:
-            pilist.append(-(4/(i+i-1)))
-    return sum(pilist)
-        
-def nilakanthaPi(x: int):
-    y = 3
-    pilist = []
-    if x == 1:
-        return y
+            y+=(-(4/(i+i-1)))
+    return y
+    
+def nilakanthaPi(n: int):
+    sum = 3
+    if n == 1:
+        return sum
     else:
-        for i in range(2, x+1):
+        for i in range(2, n+1):
             z = i*2
             if i % 2 == 0:
-                pilist.append(4/(z*(z-1)*(z-2)))
+                x = 4/(z*(z-1)*(z-2))
             else:
-                pilist.append(-(4/(z*(z-1)*(z-2))))
-    return y+sum(pilist)
+                x = -(4/(z*(z-1)*(z-2)))
+            sum += x
+    return sum
