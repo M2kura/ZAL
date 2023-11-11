@@ -1,5 +1,5 @@
 class Car:
-    def __init__(self, identification:int, name:str, brand:str, price:int, active:bool):
+    def __init__(self, identification: int, name: str, brand: str, price: int, active: bool):
         self.identification = identification
         self.name = name
         self.brand = brand
@@ -16,11 +16,10 @@ class Node:
         self.prevNode = None
 
 class LinkedList:
-    all = []
     def __init__(self):
         self.head = None
 
-    def add(self, car):
+    def add(self, car: Car):
         new_node = Node(car)
         if not self.head:
             self.head = new_node
@@ -45,56 +44,46 @@ class LinkedList:
                 new_node.nextNode = current
                 current.prevNode = self.head
         return self
-            # while current.nextNode:
-            #     current = current.nextNode
-            # current.nextNode = new_node
-            # new_node.prevNode = current
 
-    def sort_by_price(self):
-        if self.head:
-            sorted_list = []
-            current = self.head
-            while current:
-                sorted_list.append(current)
-                current = current.nextNode
-            sorted_list.sort(key=lambda x: x.data.price)
-            self.head = sorted_list[0]
-            for i in range(len(sorted_list) - 1):
-                sorted_list[i].nextNode = sorted_list[i + 1]
-                sorted_list[i + 1].prevNode = sorted_list[i]
-            sorted_list[-1].nextNode = None
-
-    def updateName(self, identification, name):
+    def updateName(self, identification: int, name: str):
         current = self.head
         while current:
             if current.data.identification == identification:
                 current.data.name = name
-                return
+                return current
             current = current.nextNode
+        else:
+            return None
 
     def updateBrand(self, identification, brand):
         current = self.head
         while current:
             if current.data.identification == identification:
                 current.data.brand = brand
-                return
+                return current
             current = current.nextNode
+        else:
+            return None
 
     def activateCar(self, identification):
         current = self.head
         while current:
             if current.data.identification == identification:
                 current.data.active = True
-                return
+                return current
             current = current.nextNode
+        else:
+            return None
 
     def deactivateCar(self, identification):
         current = self.head
         while current:
             if current.data.identification == identification:
                 current.data.active = False
-                return
+                return current
             current = current.nextNode
+        else:
+            return None
 
     def calculateCarPrice(self):
         current = self.head
@@ -111,7 +100,7 @@ class LinkedList:
     def clean(self):
         self.head = None
 
-    def init(self, cars):
+    def init(self, cars: list[Car]):
         for car in cars:
             self.add(car)
         return self
@@ -126,7 +115,8 @@ cars_list = [
     Car(1, "Car A", "Brand X", 10000, True),
     Car(2, "Car B", "Brand Y", 15000, True),
     Car(3, "Car C", "Brand Z", 12000, False),
-    Car(4, "Car D", "Brand U", 7000, True)
+    Car(4, "Car D", "Brand U", 7000, True),
+    Car(3, "Car E", "Brand iiii", 800, True)
 ]
 
 # Inicializace databáze
@@ -153,3 +143,4 @@ print("Hello World")
 # print(db.head.nextNode.data.__repr__)
 # print(db.head.nextNode.nextNode.data.__repr__)
 print(db)
+
