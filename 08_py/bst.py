@@ -10,6 +10,7 @@ class Node:
 class BinarySearchTree:
     def __init__(self):
         self.head = None
+        self.visited = 0
 
     def insert(self, value):
         new_node = Node(value)
@@ -36,8 +37,26 @@ class BinarySearchTree:
             self.insert(i)
         return 
 
-    def search(self, value):
-        pass
+    def search(self, value: int):
+        count = 0
+        current = self.head
+        if not self.head:
+            return False
+        while current:
+            if current.value == value:
+                count += 1
+                self.visited = count
+                return True
+            elif value > current.value and current.right:
+                count += 1
+                current = current.right
+            elif value < current.value and current.left:
+                count += 1
+                current = current.left
+            else:
+                count += 1
+                self.visited = count
+                return False
 
     def min(self):
         pass
@@ -46,7 +65,7 @@ class BinarySearchTree:
         pass
 
     def visitedNodes(self):
-        pass
+        return self.visited
 
 bst2 = BinarySearchTree()
 bst2.fromArray([5, 3, 5, 1, 4, 7, 6, 8])
