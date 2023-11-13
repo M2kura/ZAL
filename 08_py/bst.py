@@ -72,6 +72,17 @@ class BinarySearchTree:
             count += 1
 
     def max(self):
+        count = 0
+        current = self.head
+        if not self.head:
+            return None
+        while current:
+            if not current.right:
+                count += 1
+                self.visited = count
+                return current.value
+            current = current.right
+            count += 1
         pass
 
     def visitedNodes(self):
@@ -79,5 +90,5 @@ class BinarySearchTree:
 
 bst2 = BinarySearchTree()
 bst2.fromArray([5, 3, 5, 1, 4, 7, 6, 8])
-print(bst2.min())
+print(bst2.max())
 print(bst2.visitedNodes())
