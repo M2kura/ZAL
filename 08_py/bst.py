@@ -4,9 +4,6 @@ class Node:
         self.left = None
         self.right = None
     
-
-
-
 class BinarySearchTree:
     def __init__(self):
         self.head = None
@@ -88,7 +85,7 @@ class BinarySearchTree:
     def visitedNodes(self):
         return self.visited
 
-bst2 = BinarySearchTree()
-bst2.fromArray([5, 3, 5, 1, 4, 7, 6, 8])
-print(bst2.max())
-print(bst2.visitedNodes())
+# bst2 = BinarySearchTree()
+# bst2.fromArray([5, 3, 5, 1, 4, 7, 6, 8])
+# print(bst2.max())
+# print(bst2.visitedNodes())
