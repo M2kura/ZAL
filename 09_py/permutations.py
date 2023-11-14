@@ -1,13 +1,8 @@
 def permutations(array: list):
     perm = []
     if len(array) <= 1:
-        perm.append(array)
-    elif len(array) == 2:
-        for i in range(0, 2):
-            perm.append([i for i in array])
-            a = array.pop(0)
-            array.append(a)
-    elif len(array) >= 3:
+        perm.append([i for i in array])
+    elif len(array) >= 2:
         for i in range(0, len(array)):
             a = [array.pop(i)]
             b = permutations(array)
@@ -17,7 +12,7 @@ def permutations(array: list):
             perm += b
     return perm
 
-# list = [1, 2, 3, 4, 5]
+# list = [1, 2, 3, 4]
 # sec_list = [3, 4]
 # for i in sec_list:
 #     list.append(i)
