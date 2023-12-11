@@ -38,6 +38,7 @@ def maxExpirationDay(fridge: list[Food]):
     
 
 # test vypisu - pri odevzdani smazte, nebo zakomentujte
+# fridge = []
 # print(maxExpirationDay(fridge))
 # The command should print 4
 
@@ -66,6 +67,8 @@ def histogramOfExpirations(fridge):
 Task #3
 """
 def cumulativeSum(histogram):
+    if len(histogram) == 0:
+        return []
     cumSum = [histogram[0]]
     for i in range(1, len(histogram)):
         cumSum.append(cumSum[i-1] + histogram[i])
@@ -73,7 +76,7 @@ def cumulativeSum(histogram):
 
 
 # test vypisu - pri odevzdani smazte, nebo zakomentujte
-# print(cumulativeSum([0, 2, 0, 1, 1]))
+# print(cumulativeSum(histogramOfExpirations(fridge)))
 # The command should print [0, 2, 2, 3, 4]
 
 
@@ -135,24 +138,22 @@ def reverseFridge(fridge):
 Task #6
 """
 def eatFood(name, fridge):
+    fridge_copy = fridge.copy()
     gone = None
     for food in fridge:
         if food.name == name:
             if gone is not None:
-                if gone.expiration > food.expiration:
+                if gone.expiration >= food.expiration:
                     gone = food
                 continue
             else:
                 gone = food
-    fridge.remove(gone)
-    return fridge
+    if gone is not None:
+        fridge_copy.remove(gone)
+    return fridge_copy
 
 # test vypisu - pri odevzdani smazte, nebo zakomentujte
-# openFridge(
-#     eatFood("donut",
-#         [Food("beer", 4), Food("steak", 1), Food("hamburger", 1),
-#         Food("donut", 3), Food("donut", 1), Food("donut", 6)]
-#     ))
+# openFridge(eatFood("donut", [Food("donut", 5), Food("beer", 4), Food("steak", 1), Food("hamburger", 1), Food("donut", 3)]))
 # The command should print
 # Following items are in Homer's fridge:
 # beer (expires in: 4 days)
